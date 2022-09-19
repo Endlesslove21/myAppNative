@@ -5,6 +5,7 @@ const Test = () => {
   return (
     <View>
       <Text>Hi My name is Phi.</Text>
+      <Text>anyone changed this file</Text>
     </View>
   );
 };

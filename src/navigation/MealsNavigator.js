@@ -58,7 +58,8 @@ const MealsNavigator = () => {
         name="Meal Details"
         component={MealDetailScreen}
         options={({ navigation, route }) => ({
-          title: route.params.mealTitle,
+          headerTitle: "Meal Details",
+          headerShown: false,
         })}
       />
     </Stack.Navigator>

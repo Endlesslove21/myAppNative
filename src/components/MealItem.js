@@ -37,10 +37,13 @@ const styles = StyleSheet.create({
   mealItem: {
     height: height / 3,
     width: "100%",
-    paddingBottom: 50,
+    paddingBottom: 40,
     paddingTop: 10,
   },
-
+  mealRow: {
+    flexDirection: "row",
+    paddingHorizontal: 15,
+  },
   mealDetail: {
     paddingTop: 10,
     paddingHorizontal: 20,

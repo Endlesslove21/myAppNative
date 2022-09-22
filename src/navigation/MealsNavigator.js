@@ -10,7 +10,7 @@ import FiltersScreen from "../screens/FiltersScreen";
 import MealDetailScreen from "../screens/MealDetailScreen";
 import { Ionicons } from "@expo/vector-icons";
 import Colors from "../constants/Colors";
-import { TouchableOpacity } from "react-native-gesture-handler";
+import { TouchableOpacity, Text } from "react-native";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -30,6 +30,7 @@ const defaultOptions = {
 const menuHeaderButton = ({ navigation, route }) => ({
   headerLeft: () => (
     <TouchableOpacity
+      style={{ marginRight: 5 }}
       onPress={() => {
         navigation.toggleDrawer();
       }}
@@ -59,7 +60,6 @@ const MealsNavigator = () => {
         component={MealDetailScreen}
         options={({ navigation, route }) => ({
           headerTitle: "Meal Details",
-          headerShown: false,
         })}
       />
     </Stack.Navigator>
@@ -84,7 +84,27 @@ const FilterNavigator = () => {
       <Stack.Screen
         name="Filters"
         component={FiltersScreen}
-        options={menuHeaderButton}
+        options={({ navigation, route }) => ({
+          headerLeft: () => (
+            <TouchableOpacity
+              style={{ marginRight: 5 }}
+              onPress={() => {
+                navigation.toggleDrawer();
+              }}
+            >
+              <Ionicons name="menu" size={24} color="#fff" />
+            </TouchableOpacity>
+          ),
+          headerRight: () => (
+            <TouchableOpacity
+              onPress={() => {
+                route.params.saveFilter;
+              }}
+            >
+              <Ionicons name="ios-save" size={22} color="#fff" />
+            </TouchableOpacity>
+          ),
+        })}
       />
     </Stack.Navigator>
   );

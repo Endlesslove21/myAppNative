@@ -96,11 +96,7 @@ const FilterNavigator = () => {
             </TouchableOpacity>
           ),
           headerRight: () => (
-            <TouchableOpacity
-              onPress={() => {
-                route.params.saveFilter;
-              }}
-            >
+            <TouchableOpacity onPress={route.params.saveFilter}>
               <Ionicons name="ios-save" size={22} color="#fff" />
             </TouchableOpacity>
           ),

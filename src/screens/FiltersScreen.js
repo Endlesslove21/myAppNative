@@ -59,6 +59,7 @@ const FiltersScreen = ({ navigation }) => {
       vegetarian: isVegetarian,
       lactose: isLactose,
     };
+    console.log(optionFilter);
   }, [isGlutent, isVegan, isLactose, isVegetarian]);
 
   useEffect(() => {

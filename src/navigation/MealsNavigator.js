@@ -95,11 +95,6 @@ const FilterNavigator = () => {
               <Ionicons name="menu" size={24} color="#fff" />
             </TouchableOpacity>
           ),
-          headerRight: () => (
-            <TouchableOpacity onPress={route.params.saveFilter}>
-              <Ionicons name="ios-save" size={22} color="#fff" />
-            </TouchableOpacity>
-          ),
         })}
       />
     </Stack.Navigator>
@@ -138,12 +133,10 @@ const BottomTabNavigator = () => {
 
 const DrawerNavigator = () => {
   return (
-    <NavigationContainer>
-      <Drawer.Navigator screenOptions={{ headerShown: false }}>
-        <Drawer.Screen name="Category" component={BottomTabNavigator} />
-        <Drawer.Screen name="FilterScreen" component={FilterNavigator} />
-      </Drawer.Navigator>
-    </NavigationContainer>
+    <Drawer.Navigator screenOptions={{ headerShown: false }}>
+      <Drawer.Screen name="Category" component={BottomTabNavigator} />
+      <Drawer.Screen name="FilterScreen" component={FilterNavigator} />
+    </Drawer.Navigator>
   );
 };
 

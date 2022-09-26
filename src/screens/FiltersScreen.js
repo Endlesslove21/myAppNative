@@ -5,10 +5,13 @@ import {
   Switch,
   Platform,
   Dimensions,
+  TouchableOpacity,
 } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
 import React, { useState, useCallback, useEffect } from "react";
 import Colors from "../constants/Colors";
 const { width, height } = Dimensions.get("window");
+
 const SwitchTemplate = ({ name, value, onValueChange }) => {
   return (
     <View style={styles.switchContainer}>
@@ -63,7 +66,13 @@ const FiltersScreen = ({ navigation }) => {
   }, [isGlutent, isVegan, isLactose, isVegetarian]);
 
   useEffect(() => {
-    navigation.setParams({ saveFilter: selectedFilter });
+    navigation.setOptions({
+      headerRight: () => (
+        <TouchableOpacity onPress={selectedFilter}>
+          <Ionicons name="ios-save" size={22} color="#fff" />
+        </TouchableOpacity>
+      ),
+    });
   }, [selectedFilter]);
 
   return (

@@ -7,16 +7,17 @@ import {
   View,
 } from "react-native";
 import React from "react";
-import { MEALS } from "../data/dummyData";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { Ionicons } from "@expo/vector-icons";
 import Colors from "../constants/Colors";
+import { useSelector } from "react-redux";
 const { width, height } = Dimensions.get("window");
 
 const MealDetailScreen = (props) => {
   const { navigation, route } = props;
+  const availableMeals = useSelector((state) => state.meals.meals);
   const { mealId } = route.params;
-  const selectedMealDetail = MEALS.find((meal) => meal.id === mealId);
+
+  const selectedMealDetail = availableMeals.find((meal) => meal.id === mealId);
 
   return (
     <ScrollView style={styles.container}>

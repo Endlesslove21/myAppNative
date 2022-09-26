@@ -1,8 +1,12 @@
-import { StyleSheet, Text, View, Switch } from "react-native";
-import React, { useState } from "react";
+import { StyleSheet, Text, View } from "react-native";
+import React from "react";
 
 const FavoriteScreen = () => {
-  return <View></View>;
+  return (
+    <View>
+      <Text>FavoriteScreen</Text>
+    </View>
+  );
 };
 
 export default FavoriteScreen;

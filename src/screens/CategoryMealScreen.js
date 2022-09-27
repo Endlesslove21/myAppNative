@@ -1,7 +1,5 @@
 import { Button, FlatList, StyleSheet, Text, View } from "react-native";
 import React from "react";
-import { CATEGORIES } from "../data/dummyData";
-import MealItem from "../components/MealItem";
 import MealList from "../components/MealList";
 import { useSelector } from "react-redux";
 

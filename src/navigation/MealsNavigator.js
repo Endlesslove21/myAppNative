@@ -133,10 +133,12 @@ const BottomTabNavigator = () => {
 
 const DrawerNavigator = () => {
   return (
-    <Drawer.Navigator screenOptions={{ headerShown: false }}>
-      <Drawer.Screen name="Category" component={BottomTabNavigator} />
-      <Drawer.Screen name="FilterScreen" component={FilterNavigator} />
-    </Drawer.Navigator>
+    <NavigationContainer>
+      <Drawer.Navigator screenOptions={{ headerShown: false }}>
+        <Drawer.Screen name="Category" component={BottomTabNavigator} />
+        <Drawer.Screen name="FilterScreen" component={FilterNavigator} />
+      </Drawer.Navigator>
+    </NavigationContainer>
   );
 };
 

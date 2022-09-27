@@ -1,31 +1,56 @@
 import {
   Dimensions,
   Image,
+  Pressable,
   ScrollView,
   StyleSheet,
   Text,
+  TouchableOpacity,
   View,
 } from "react-native";
-import React from "react";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
+import React, { useEffect, useState } from "react";
+import { Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
 import Colors from "../constants/Colors";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { toggleFavorite } from "../../store/actions/meals";
 const { width, height } = Dimensions.get("window");
 
 const MealDetailScreen = (props) => {
   const { navigation, route } = props;
   const availableMeals = useSelector((state) => state.meals.meals);
-  const { mealId } = route.params;
-
+  const { mealId, mealTitle } = route.params;
   const selectedMealDetail = availableMeals.find((meal) => meal.id === mealId);
+
+  const dispatch = useDispatch();
+
+  const toggleFavoriteHandler = () => {
+    dispatch(toggleFavorite(mealId));
+  };
+
+  useEffect(() => {
+    navigation.setOptions({
+      headerTitle: mealTitle,
+      headerRight: () => (
+        <TouchableOpacity onPress={toggleFavoriteHandler}>
+          <Ionicons name="ios-star" size={23} color="#fff" />
+        </TouchableOpacity>
+      ),
+    });
+  }, [navigation]);
 
   return (
     <ScrollView style={styles.container}>
       <View style={styles.header}>
-        <Image
-          style={styles.image}
-          source={{ uri: selectedMealDetail.imageUrl }}
-        />
+        <Pressable
+          onPress={() => {
+            alert(isFavor);
+          }}
+        >
+          <Image
+            style={styles.image}
+            source={{ uri: selectedMealDetail.imageUrl }}
+          />
+        </Pressable>
       </View>
 
       <View style={styles.content}>

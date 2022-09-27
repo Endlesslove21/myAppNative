@@ -7,9 +7,7 @@ import { NavigationContainer } from "@react-navigation/native";
 const App = () => {
   return (
     <Provider store={store}>
-      <NavigationContainer>
-        <MealsNavigator />
-      </NavigationContainer>
+      <MealsNavigator />
     </Provider>
   );
 };
